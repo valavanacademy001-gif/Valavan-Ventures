@@ -234,7 +234,7 @@ export default function Settings() {
                     <Plus size={15} /> Add
                   </button>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 8 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 160px), 1fr))', gap: 8 }}>
                   {depts.map(d => (
                     <div key={d} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', background: 'var(--bg-hover)', borderRadius: 8 }}>
                       <span style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--text-primary)' }}>{d}</span>
@@ -261,7 +261,7 @@ export default function Settings() {
                     <Plus size={15} /> Add
                   </button>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 8 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 200px), 1fr))', gap: 8 }}>
                   {desigs.map(d => (
                     <div key={d} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', background: 'var(--bg-hover)', borderRadius: 8 }}>
                       <span style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--text-primary)' }}>{d}</span>

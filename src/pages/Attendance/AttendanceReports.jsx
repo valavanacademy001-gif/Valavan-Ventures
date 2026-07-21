@@ -12,7 +12,7 @@ const REPORTS = [
 export default function AttendanceReports() {
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: 20 }}>
         {REPORTS.map(report => (
           <div key={report.id} className="card table-row-hover" style={{ padding: 24, cursor: 'pointer', transition: 'all 0.2s ease' }}>
             <div style={{ display: 'flex', gap: 16 }}>

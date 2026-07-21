@@ -133,8 +133,8 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  z-index: 100;
-  transition: width var(--transition-slow), transform var(--transition-slow), background var(--transition);
+  z-index: 200;
+  transition: width var(--transition-slow), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background var(--transition);
   overflow: hidden;
 }
 
@@ -1425,8 +1425,8 @@ html, body {
   .mobile-only  { display: flex !important; }
   .desktop-only { display: none !important; }
 
-  /* Tables → card mode */
-  .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Tables → card mode or scrollable */
+  .table-wrapper, .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
 
   /* TABLE → CARD STACKING */
   .table-card-mode table,
@@ -1494,3 +1494,41 @@ html, body {
   .icon-btn { width: 38px; height: 38px; }
 }
 
+/* ============================================================
+   900px — Tablet / Mobile breakpoint for sidebar
+   ============================================================ */
+@media (max-width: 900px) {
+  :root { --sidebar-width: 0px; }
+  
+  .sidebar {
+    transform: translateX(-110%);
+    width: 280px;
+    max-width: 85vw;
+    border-radius: 0 16px 16px 0;
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .main-content { margin-left: 0 !important; }
+
+  /* Safe Area Support */
+  .page-content {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+  }
+  .topbar {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  
+  /* Touch targets minimum */
+  .btn, .input, .select, select { min-height: 44px; }
+  .icon-btn { width: 44px; height: 44px; }
+  
+  /* Kanbans */
+  .kanban-board { flex-direction: column; overflow-x: hidden; }
+  .kanban-column { width: 100%; }
+}

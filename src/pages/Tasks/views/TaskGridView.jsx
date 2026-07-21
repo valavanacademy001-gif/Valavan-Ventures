@@ -27,7 +27,7 @@ export default function TaskGridView({ tasks, onOpenTask }) {
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: 24 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 350px), 1fr))', gap: 24 }}>
       {tasks.map(task => {
         const project = projects.find(p => p.id === task.project);
         const assignee = employees.find(e => e.id === task.assignedTo);

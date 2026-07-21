@@ -135,7 +135,7 @@ export default function TaskDashboardEmployee({ onSwitchView, onOpenTask, onSele
             </button>
           </div>
 
-          <div style={{ padding: '20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+          <div style={{ padding: '20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: 16 }}>
             {filteredTasks.length === 0 ? (
               <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '48px 0', color: 'var(--text-muted)' }}>
                 <CheckCircle2 size={48} style={{ marginBottom: 12, opacity: 0.3 }} />

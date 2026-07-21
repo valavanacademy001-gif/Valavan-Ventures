@@ -281,7 +281,7 @@ export default function Employees() {
       ) : (
         <>
           {view === 'card' ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: 16 }}>
               {filtered.map(emp => <EmployeeCard key={emp.id} emp={emp} onClick={setSelected} onDelete={handleDelete} isAdmin={isAdmin} />)}
             </div>
           ) : (

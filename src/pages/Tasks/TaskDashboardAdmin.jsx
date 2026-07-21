@@ -106,7 +106,7 @@ export default function TaskDashboardAdmin({ onSwitchView, onOpenTask, onSelectK
               View All Tasks
             </button>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 14, padding: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 220px), 1fr))', gap: 14, padding: 20 }}>
             {workloadEmployees.map(emp => {
               const w = getWorkload(emp.id);
               const prodColor = w.productivity >= 70 ? '#059669' : w.productivity >= 40 ? '#D97706' : '#DC2626';

@@ -62,7 +62,7 @@ export default function Projects() {
       </div>
 
       {/* Projects Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: 16 }}>
         {filtered.map(project => {
           const { bg, color, label } = STATUS_COLORS[project.status] || STATUS_COLORS.active;
           const assignees = project.assignedEmployees.map(id => mockUsers.find(u => u.id === id)).filter(Boolean);

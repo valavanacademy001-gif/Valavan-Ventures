@@ -130,7 +130,7 @@ export default function Payslips() {
       </div>
 
       {/* Payslip cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: 16 }}>
         {myPayslips.map(ps => {
           const user = mockUsers.find(u => u.id === ps.userId);
           return (

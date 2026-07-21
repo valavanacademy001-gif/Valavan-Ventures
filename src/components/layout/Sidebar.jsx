@@ -98,7 +98,14 @@ export default function Sidebar({ mobileOpen, onClose }) {
         <div
           className="mobile-overlay"
           onClick={onClose}
-          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.45)', zIndex: 199, backdropFilter: 'blur(2px)' }}
+          style={{ 
+            position: 'fixed', 
+            inset: 0, 
+            background: 'rgba(0,0,0,0.5)', 
+            zIndex: 199, 
+            backdropFilter: 'blur(4px)',
+            WebkitBackdropFilter: 'blur(4px)'
+          }}
         />
       )}
 
@@ -182,6 +189,12 @@ export default function Sidebar({ mobileOpen, onClose }) {
             <LogOut size={15} />
             Sign Out
           </button>
+
+          {/* Version / Branding */}
+          <div style={{ textAlign: 'center', marginTop: 16, marginBottom: 4 }}>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 600 }}>VALAVAN VENTURES</div>
+            <div style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 2 }}>Version 1.0.0</div>
+          </div>
         </div>
 
       </aside>

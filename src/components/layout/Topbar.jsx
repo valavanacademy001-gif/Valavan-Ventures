@@ -46,22 +46,22 @@ export default function Topbar({ title, subtitle, onMenuToggle }) {
 
   return (
     <>
-      <header className="topbar">
+      <header className="topbar" style={{ display: 'flex', alignItems: 'center', height: 'var(--topbar-height)' }}>
         {/* Hamburger – mobile only */}
-        <button className="icon-btn mobile-menu-btn" onClick={onMenuToggle} aria-label="Open menu">
+        <button className="icon-btn mobile-menu-btn" onClick={onMenuToggle} aria-label="Open menu" style={{ marginRight: 8 }}>
           <Menu size={18} />
         </button>
 
         {/* Mobile logo — visibility controlled by CSS */}
-        <div className="mobile-only-logo" style={{ marginLeft: 8 }}>
-          <img src="/logo.png" alt="Valavan Ventures" className="mobile-logo-icon" style={{ width: 'auto', height: 28, objectFit: 'contain' }} />
+        <div className="mobile-only-logo" style={{ display: 'flex', alignItems: 'center', marginRight: 12 }}>
+          <img src="/logo.png" alt="Valavan Ventures" className="mobile-logo-icon" style={{ width: 'auto', height: 26, objectFit: 'contain' }} />
         </div>
 
         {/* Page title */}
-        <div style={{ flex: 1, marginLeft: 16 }} className="topbar-title-container">
-          <div className="topbar-title">
-            {title}
-            {subtitle && <span className="topbar-subtitle">/ {subtitle}</span>}
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', minWidth: 0 }} className="topbar-title-container">
+          <div className="topbar-title" style={{ display: 'flex', alignItems: 'center', gap: 6, margin: 0 }}>
+            <span style={{ fontWeight: 600 }}>{title}</span>
+            {subtitle && <span className="topbar-subtitle" style={{ opacity: 0.6 }}>/ {subtitle}</span>}
           </div>
         </div>
 
