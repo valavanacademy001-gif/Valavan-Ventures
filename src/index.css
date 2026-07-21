@@ -1552,9 +1552,25 @@ html, body {
 .grid-responsive-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+.grid-sidebar-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+}
+.grid-sidebar-layout-sm {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+}
+.grid-dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 320px;
+}
+.calendar-scroll-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   width: 100%;
+  margin: 0 -24px;
+  padding: 0 24px;
 }
 .calendar-scroll-inner {
   min-width: 700px;
