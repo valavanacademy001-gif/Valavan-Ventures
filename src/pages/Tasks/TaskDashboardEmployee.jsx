@@ -85,7 +85,7 @@ export default function TaskDashboardEmployee({ onSwitchView, onOpenTask, onSele
       </div>
 
       {/* Stat cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 12 }}>
+      <div className="grid-responsive-6" style={{ gap: 12 }}>
         {topCards.map(c => (
           <div
             key={c.filter}
@@ -113,7 +113,7 @@ export default function TaskDashboardEmployee({ onSwitchView, onOpenTask, onSele
       </div>
 
       {/* Main content */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: 20 }}>
+      <div className="grid-sidebar-layout-sm" style={{ gap: 20 }}>
         {/* Task cards */}
         <div style={{ background: 'var(--bg-card)', borderRadius: 16, boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border)' }}>
           <div style={{ padding: '18px 24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

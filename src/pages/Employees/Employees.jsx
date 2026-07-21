@@ -74,7 +74,7 @@ function EmployeeCard({ emp, onClick, onDelete, isAdmin }) {
           )}
         </div>
         
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginTop: 'auto' }}>
+        <div className="grid-responsive-2" style={{ gap: 8, marginTop: 'auto' }}>
           <div style={{ background: 'var(--bg-hover)', borderRadius: 8, padding: '8px 10px', textAlign: 'center' }}>
             <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)' }}>{emp.attendancePercent}%</div>
             <div style={{ fontSize: 10, color: 'var(--text-muted)', fontWeight: 600 }}>ATTENDANCE</div>

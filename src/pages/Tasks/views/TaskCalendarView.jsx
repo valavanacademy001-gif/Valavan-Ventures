@@ -35,13 +35,15 @@ export default function TaskCalendarView({ tasks, onOpenTask }) {
       </div>
 
       {/* Calendar Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', borderBottom: '1px solid var(--border-color)', background: '#F8FAFC' }}>
-        {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-          <div key={day} style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600, color: 'var(--text-muted)', textAlign: 'right' }}>
-            {day}
+      <div className="calendar-scroll-wrapper" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <div className="calendar-scroll-inner" style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', borderBottom: '1px solid var(--border-color)', background: '#F8FAFC' }}>
+            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+              <div key={day} style={{ padding: '12px 16px', fontSize: 13, fontWeight: 600, color: 'var(--text-muted)', textAlign: 'right' }}>
+                {day}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gridAutoRows: 'minmax(120px, 1fr)', flex: 1, overflowY: 'auto', background: 'var(--border-color)', gap: 1 }}>
         {prefixDays.map(k => (
@@ -94,6 +96,8 @@ export default function TaskCalendarView({ tasks, onOpenTask }) {
         {suffixDays.map(k => (
           <div key={k} style={{ background: '#F8FAFC' }} />
         ))}
+        </div>
+        </div>
       </div>
     </div>
   );

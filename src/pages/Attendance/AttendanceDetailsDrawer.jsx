@@ -202,7 +202,7 @@ export default function AttendanceDetailsDrawer({ data, onClose, isAdmin }) {
             </div>
 
             {/* Times */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+            <div className="grid-responsive-2" style={{ gap: 14 }}>
               <div>
                 <label style={{ display: 'block', fontSize: 11, fontWeight: 700, color: 'var(--text-muted)', marginBottom: 7, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Check In (Biometric)
@@ -236,7 +236,7 @@ export default function AttendanceDetailsDrawer({ data, onClose, isAdmin }) {
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 14 }}>
                 Auto-Calculated Metrics
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+              <div className="grid-responsive-2" style={{ gap: 14 }}>
                 {[
                   { label: 'Worked Hours', value: formatMins(liveMetrics.workedMins), color: '#2563EB' },
                   { label: 'Late Minutes', value: liveMetrics.lateMins > 0 ? `${liveMetrics.lateMins} min` : '—', color: liveMetrics.lateMins > 0 ? '#DC2626' : 'var(--text-muted)' },

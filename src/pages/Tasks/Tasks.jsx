@@ -63,15 +63,15 @@ export default function Tasks() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
       {/* Header */}
-      <div className="page-header" style={{ padding: '24px 32px', background: 'white', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="page-header" style={{ padding: 'max(24px, env(safe-area-inset-top)) max(32px, env(safe-area-inset-right)) 24px max(32px, env(safe-area-inset-left))', background: 'white', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
         <div className="page-header-left">
           <h1 style={{ fontSize: 24, fontWeight: 700, margin: 0 }}>Task Management</h1>
           <p style={{ color: 'var(--text-muted)', margin: '4px 0 0 0' }}>Manage projects, deadlines, and deliverables</p>
         </div>
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
           {currentView !== 'dashboard' && (
-            <div style={{ display: 'flex', background: 'var(--bg-secondary)', padding: 4, borderRadius: 8 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', background: 'var(--bg-secondary)', padding: 4, borderRadius: 8 }}>
               {['kanban', 'table', 'grid', 'timeline', 'calendar'].map(view => (
                 <button
                   key={view}

@@ -78,7 +78,7 @@ export default function Settings() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: 20 }}>
+      <div className="grid-sidebar-left" style={{ gap: 20 }}>
         {/* Sidebar tabs */}
         <div className="card" style={{ padding: '12px', height: 'fit-content' }}>
           {TABS.map(tab => (
@@ -204,7 +204,7 @@ export default function Settings() {
                   </button>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                <div className="grid-responsive-2" style={{ gap: 12 }}>
                   {[
                     { label: 'Light Mode', desc: 'Clean white background', img: '☀️' },
                     { label: 'Dark Mode', desc: 'Easy on the eyes', img: '🌙' },
@@ -346,7 +346,7 @@ export default function Settings() {
                 </div>
               </div>
               <div className="card-body" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                <div className="grid-responsive-2" style={{ gap: 16 }}>
                   <div className="form-group">
                     <label className="form-label">Office Start Time</label>
                     <input type="time" className="input" defaultValue="10:00" />
@@ -356,7 +356,7 @@ export default function Settings() {
                     <input type="time" className="input" defaultValue="18:00" />
                   </div>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                <div className="grid-responsive-2" style={{ gap: 16 }}>
                   <div className="form-group">
                     <label className="form-label">Grace Time (Minutes)</label>
                     <input type="number" className="input" defaultValue="15" />
@@ -396,7 +396,7 @@ export default function Settings() {
                 </div>
               </div>
               <div className="card-body">
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
+                <div className="grid-responsive-2" style={{ gap: 16, marginBottom: 24 }}>
                   <div className="card" style={{ padding: 16, border: '2px solid var(--primary)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                       <h4 style={{ margin: 0, fontWeight: 700 }}>ESSL Face Device</h4>

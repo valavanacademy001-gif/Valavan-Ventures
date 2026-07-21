@@ -157,7 +157,8 @@ export default function EmployeeAttendance() {
           </div>
         </div>
 
-        <div style={{ padding: 24 }}>
+        <div style={{ padding: 24 }} className="calendar-scroll-wrapper">
+          <div className="calendar-scroll-inner">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 8, marginBottom: 8 }}>
             {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => (
               <div key={d} style={{ textAlign: 'center', fontSize: 13, fontWeight: 600, color: 'var(--text-muted)', padding: '10px 0' }}>{d}</div>
@@ -240,6 +241,7 @@ export default function EmployeeAttendance() {
               );
             })}
           </div>
+        </div>
         </div>
       </div>
 

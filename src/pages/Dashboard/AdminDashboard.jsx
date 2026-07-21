@@ -147,7 +147,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Charts + Activity */}
-      <div className="admin-chart-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 320px', gap: 16, marginBottom: 16 }}>
+      <div className="admin-chart-grid grid-dashboard-layout" style={{ gap: 16, marginBottom: 16 }}>
         {/* Attendance Chart */}
         <div className="card">
           <div className="card-header">
@@ -211,7 +211,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Projects + Leaves + Announcements */}
-      <div className="admin-bottom-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
+      <div className="admin-bottom-grid grid-responsive-3" style={{ gap: 16 }}>
         {/* Project Progress */}
         <div className="card">
           <div className="card-header">

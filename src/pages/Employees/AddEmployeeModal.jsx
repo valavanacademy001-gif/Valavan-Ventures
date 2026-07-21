@@ -280,7 +280,7 @@ export default function AddEmployeeModal({ onClose }) {
               </div>
 
               <div className="card">
-                <div className="card-body" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px 32px' }}>
+                <div className="card-body grid-responsive-2" style={{ gap: '20px 32px' }}>
                   <ReviewItem label="Full Name" value={form.name} />
                   <ReviewItem label="Email" value={form.email} />
                   <ReviewItem label="Phone" value={form.phone} />

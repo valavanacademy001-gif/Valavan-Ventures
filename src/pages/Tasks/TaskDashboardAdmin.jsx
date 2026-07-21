@@ -70,7 +70,7 @@ export default function TaskDashboardAdmin({ onSwitchView, onOpenTask, onSelectK
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
       {/* Top stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 14 }}>
+      <div className="grid-responsive-6" style={{ gap: 14 }}>
         {topStats.map(s => (
           <div
             key={s.label}
@@ -94,7 +94,7 @@ export default function TaskDashboardAdmin({ onSwitchView, onOpenTask, onSelectK
       </div>
 
       {/* Employee Workload + Recent Activity */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 20 }}>
+      <div className="grid-sidebar-layout" style={{ gap: 20 }}>
         {/* Workload grid */}
         <div style={{ background: 'var(--bg-card)', borderRadius: 16, boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border)' }}>
           <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -133,7 +133,7 @@ export default function TaskDashboardAdmin({ onSwitchView, onOpenTask, onSelectK
                       <span style={{ position: 'absolute', fontSize: 10, fontWeight: 800, color: prodColor }}>{w.productivity}%</span>
                     </div>
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+                  <div className="grid-responsive-3" style={{ gap: 8 }}>
                     {[
                       { label: 'Active', val: w.active, color: '#2563EB' },
                       { label: 'Review', val: w.review, color: '#7C3AED' },

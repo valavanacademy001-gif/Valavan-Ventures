@@ -1532,3 +1532,56 @@ html, body {
   .kanban-board { flex-direction: column; overflow-x: hidden; }
   .kanban-column { width: 100%; }
 }
+
+/* ============================================================
+   RESPONSIVE GRID UTILITIES
+   Replaces hardcoded inline grid styles to prevent mobile overflow
+   ============================================================ */
+.grid-responsive-6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.grid-responsive-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-responsive-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-responsive-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+.calendar-scroll-inner {
+  min-width: 700px;
+}
+
+@media (max-width: 1200px) {
+  .grid-responsive-6 { grid-template-columns: repeat(4, 1fr); }
+  .grid-dashboard-layout { grid-template-columns: 1fr 320px; }
+}
+
+@media (max-width: 900px) {
+  .grid-responsive-6 { grid-template-columns: repeat(3, 1fr); }
+  .grid-responsive-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-sidebar-layout { grid-template-columns: 1fr; }
+  .grid-sidebar-layout-sm { grid-template-columns: 1fr; }
+  .grid-dashboard-layout { grid-template-columns: 1fr; }
+  .grid-sidebar-left { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .grid-responsive-6 { grid-template-columns: repeat(2, 1fr); }
+  .grid-responsive-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-responsive-3 { grid-template-columns: 1fr; }
+  .grid-responsive-2 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .grid-responsive-6 { grid-template-columns: 1fr; }
+  .grid-responsive-4 { grid-template-columns: 1fr; }
+}

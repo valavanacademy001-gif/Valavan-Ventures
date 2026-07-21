@@ -109,7 +109,7 @@ export default function TaskDetailModal({ task, onClose, onUpdate }) {
           <button className="icon-btn" onClick={onClose}><X size={18} /></button>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', height: 'calc(90vh - 80px)', overflow: 'hidden' }}>
+        <div className="grid-sidebar-layout-sm" style={{ height: 'calc(90vh - 80px)', overflow: 'hidden' }}>
           {/* Left - Main content */}
           <div style={{ overflow: 'auto', borderRight: '1px solid var(--border)' }}>
             {/* Tabs */}

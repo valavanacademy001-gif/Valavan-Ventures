@@ -117,7 +117,7 @@ export default function EmployeeDetailsDrawer({ emp, onClose }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               
               {/* Stats Row */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+              <div className="grid-responsive-4" style={{ gap: 16 }}>
                 {[
                   { label: 'Attendance', value: `${emp.attendancePercent}%`, color: '#059669', icon: Clock },
                   { label: 'Performance', value: emp.performanceScore, color: '#2563EB', icon: CheckCircle2 },
@@ -139,7 +139,7 @@ export default function EmployeeDetailsDrawer({ emp, onClose }) {
               </div>
 
               {/* Info Cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+              <div className="grid-responsive-2" style={{ gap: 24 }}>
                 <div className="card">
                   <div className="card-header"><h3 className="card-title">Personal Information</h3></div>
                   <div className="card-body" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>

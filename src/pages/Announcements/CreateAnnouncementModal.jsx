@@ -53,7 +53,7 @@ export default function CreateAnnouncementModal({ onClose }) {
         </div>
 
         <form onSubmit={handleSubmit} style={{ padding: 32, maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 24 }}>
+          <div className="grid-responsive-2" style={{ gap: 24, marginBottom: 24 }}>
             <div style={{ gridColumn: '1 / -1' }}>
               <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 600, color: 'var(--text-muted)', marginBottom: 8 }}>
                 <FileText size={14} /> Title *
