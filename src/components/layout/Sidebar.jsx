@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useApp } from '../../context/AppContext';
 import {
   LayoutDashboard, Users, CheckSquare, FolderOpen, Calendar,
   DollarSign, CalendarOff, MessageSquare, Megaphone, Settings,
-  Building2, LogOut, ChevronRight, Shield, CheckCircle
+  LogOut, CheckCircle
 } from 'lucide-react';
 import { ROLES } from '../../data/mockData';
 
@@ -79,9 +80,28 @@ export default function Sidebar({ mobileOpen, onClose }) {
     navigate('/login');
   };
 
+  // ESC key to close mobile drawer
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'Escape' && mobileOpen) onClose();
+    };
+    document.addEventListener('keydown', handleKey);
+    return () => document.removeEventListener('keydown', handleKey);
+  }, [mobileOpen, onClose]);
+
+  const roleName = currentUser?.role?.replace(/_/g, ' ') ?? '';
+
   return (
     <>
-      {mobileOpen && <div className="mobile-overlay" onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.4)',zIndex:99}} />}
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div
+          className="mobile-overlay"
+          onClick={onClose}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.45)', zIndex: 199, backdropFilter: 'blur(2px)' }}
+        />
+      )}
+
       <aside className={`sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
         {/* Logo */}
         <div className="sidebar-logo">
@@ -125,23 +145,37 @@ export default function Sidebar({ mobileOpen, onClose }) {
           )}
         </nav>
 
-        {/* Footer */}
+        {/* Footer — User Profile + Logout */}
         <div className="sidebar-footer">
-          <div className="sidebar-user" onClick={handleLogout} data-tooltip="Click to logout">
-            <div
-              className="avatar avatar-sm"
-              style={{ background: getAvatarColor(currentUser?.name), flexShrink: 0 }}
-            >
-              {getInitials(currentUser?.name)}
+          {/* User Profile row (non-clickable) */}
+          <div className="sidebar-user" style={{ cursor: 'default' }}>
+            <div style={{ position: 'relative', flexShrink: 0 }}>
+              <div
+                className="avatar avatar-sm"
+                style={{ background: getAvatarColor(currentUser?.name) }}
+              >
+                {getInitials(currentUser?.name)}
+              </div>
+              <span className="sidebar-online-dot" />
             </div>
             <div className="sidebar-user-info">
               <div className="sidebar-user-name">{currentUser?.name}</div>
-              <div className="sidebar-user-role">{currentUser?.role?.replace('_', ' ')}</div>
+              <div className="sidebar-user-role" style={{ textTransform: 'capitalize' }}>{roleName}</div>
             </div>
-            <LogOut size={14} color="var(--text-muted)" />
           </div>
+
+          {/* Dedicated Logout Button */}
+          <button
+            className="sidebar-logout-btn"
+            onClick={handleLogout}
+            aria-label="Logout"
+          >
+            <LogOut size={15} />
+            Logout
+          </button>
         </div>
       </aside>
     </>
   );
 }
+
