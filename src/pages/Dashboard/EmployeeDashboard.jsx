@@ -28,43 +28,51 @@ function TaskRow({ task, onStartWorking, onSubmit }) {
   const isOverdue = task.deadline < new Date().toISOString().split('T')[0];
   const p = PRIORITY_BADGE[task.priority] || PRIORITY_BADGE.medium;
   const s = STATUS_BADGE[task.status] || STATUS_BADGE.assigned;
-  const project = mockProjects.find(p => p.id === task.project);
+  const project = mockProjects.find(pr => pr.id === task.project);
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 20px', borderBottom: '1px solid var(--border)', transition: 'background var(--transition)' }}
-      onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-hover)'}
-      onMouseLeave={e => e.currentTarget.style.background = ''}
-    >
-      <div className={`priority-dot priority-${task.priority}`} />
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 2 }}>{task.title}</div>
-        <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
-          {project?.name} · Due {format(parseISO(task.deadline), 'MMM d')}
-          {isOverdue && <span style={{ color: 'var(--danger)', fontWeight: 600 }}> · Overdue!</span>}
-        </div>
+    <div className="task-mobile-card">
+      {/* Priority dot + title */}
+      <div className="task-mobile-card-header">
+        <div className={`priority-dot priority-${task.priority}`} style={{ marginTop: 5, flexShrink: 0 }} />
+        <div className="task-mobile-card-title">{task.title}</div>
       </div>
-      <span className={`badge ${p.cls}`}>{p.label}</span>
-      <span className={`badge ${s.cls}`}>{s.label}</span>
-      <div style={{ display: 'flex', gap: 6 }}>
-        {task.status === TASK_STATUS.ASSIGNED && (
-          <button className="btn btn-secondary btn-sm" onClick={() => onStartWorking(task.id)}>
-            <Play size={12} /> Start
-          </button>
-        )}
-        {task.status === TASK_STATUS.WORKING && (
-          <button className="btn btn-primary btn-sm" onClick={() => onSubmit(task.id)}>
-            <Send size={12} /> Submit
-          </button>
-        )}
-        {task.status === TASK_STATUS.CHANGES_NEEDED && (
-          <button className="btn btn-warning btn-sm" style={{ background: 'var(--warning)', color: 'white', border: 'none' }} onClick={() => onSubmit(task.id)}>
-            Resubmit
-          </button>
-        )}
+
+      {/* Project + deadline */}
+      <div style={{ fontSize: 12, color: 'var(--text-muted)', paddingLeft: 18 }}>
+        {project?.name}
+        {task.deadline && <> · Due {format(parseISO(task.deadline), 'MMM d')}</>}
+        {isOverdue && <span style={{ color: 'var(--danger)', fontWeight: 700 }}> · Overdue!</span>}
+      </div>
+
+      {/* Badges + action button */}
+      <div className="task-mobile-card-footer">
+        <div className="task-mobile-card-meta">
+          <span className={`badge ${p.cls}`}>{p.label}</span>
+          <span className={`badge ${s.cls}`}>{s.label}</span>
+        </div>
+        <div style={{ display: 'flex', gap: 6 }}>
+          {task.status === TASK_STATUS.ASSIGNED && (
+            <button className="btn btn-secondary btn-sm" onClick={() => onStartWorking(task.id)}>
+              <Play size={12} /> Start
+            </button>
+          )}
+          {task.status === TASK_STATUS.WORKING && (
+            <button className="btn btn-primary btn-sm" onClick={() => onSubmit(task.id)}>
+              <Send size={12} /> Submit
+            </button>
+          )}
+          {task.status === TASK_STATUS.CHANGES_NEEDED && (
+            <button className="btn btn-sm" style={{ background: 'var(--warning)', color: 'white', border: 'none' }} onClick={() => onSubmit(task.id)}>
+              Resubmit
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
 }
+
 
 export default function EmployeeDashboard() {
   const { tasks, attendance, notifications, announcements, updateTask, submitForReview } = useApp();
@@ -212,7 +220,7 @@ export default function EmployeeDashboard() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 16 }}>
+      <div className="dashboard-main-grid">
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {/* Today's Focus */}
           {urgentTasks.length > 0 && (

@@ -1423,3 +1423,276 @@ tbody tr:last-child td { border-bottom: none; }
 .opacity-0 { opacity: 0; }
 .min-w-0 { min-width: 0; }
 
+/* ============================================================
+   MOBILE-FIRST: DASHBOARD GRID
+   ============================================================ */
+/* Responsive dashboard two-panel grid — right panel beside content on desktop, stacks below on mobile */
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+}
+
+/* ============================================================
+   MOBILE-FIRST: TASK ROW → MOBILE CARD
+   ============================================================ */
+.task-mobile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow var(--transition);
+}
+.task-mobile-card:hover { box-shadow: var(--shadow-md); }
+.task-mobile-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.task-mobile-card-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  line-height: 1.4;
+}
+.task-mobile-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.task-mobile-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.task-mobile-card-deadline {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   MOBILE-FIRST: TOUCH TARGETS
+   ============================================================ */
+/* All interactive elements min 44px on mobile */
+@media (max-width: 768px) {
+  .btn { min-height: 44px; }
+  .btn-sm { min-height: 36px; padding: 8px 14px; }
+  .icon-btn { width: 44px; height: 44px; }
+  select, .input, .select { min-height: 44px; }
+
+  /* Safe area support for iOS/Android notch */
+  .page-content {
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
+  }
+  .topbar {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+  .sidebar {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Dashboard grid → single column */
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stat grid → 1 column on mobile (override 2-col) */
+  .stat-grid-4, .stat-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Stat card horizontal layout on mobile — icon left, content right */
+  .stat-card {
+    padding: 16px 18px;
+    align-items: center;
+    gap: 14px;
+  }
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+  .stat-value { font-size: 24px; }
+  .stat-label { font-size: 11px; }
+
+  /* Table → card mode globally on mobile */
+  .table-wrapper { overflow-x: hidden !important; }
+  .table-wrapper table { min-width: 0 !important; display: block; }
+  .table-wrapper thead { display: none !important; }
+  .table-wrapper tbody { display: block; }
+  .table-wrapper tbody tr {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    padding: 12px 14px;
+  }
+  .table-wrapper tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 13px;
+    min-height: 0;
+  }
+  .table-wrapper tbody td:last-child { border-bottom: none; }
+  .table-wrapper tbody td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+
+  /* Calendar responsive */
+  .cal-grid { gap: 2px; }
+  .cal-day { font-size: 11px; border-radius: 6px; }
+  .cal-day-label { font-size: 9px; padding: 4px 0; }
+
+  /* Card header wrap on mobile */
+  .card-header {
+    padding: 14px 16px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .card-body { padding: 14px 16px; }
+
+  /* Admin dashboard 3-col grid → 1 col */
+  .admin-chart-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .admin-bottom-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Quick actions → 2 cols on mobile */
+  .quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .quick-action-card { padding: 14px 10px; }
+
+  /* Page header h1 */
+  .page-header h1 { font-size: 18px; }
+  .page-header p { font-size: 12px; }
+
+  /* Topbar title truncate */
+  .topbar-title { 
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 140px;
+  }
+
+  /* Notification panel full screen */
+  .notif-panel {
+    position: fixed !important;
+    top: 64px !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    max-height: 65vh;
+    z-index: 9999;
+  }
+
+  /* Modal slides from bottom */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modal {
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-height: 92vh;
+  }
+  .modal-sm, .modal-md, .modal-lg, .modal-xl {
+    max-width: 100%;
+  }
+  .modal-body { padding: 16px; }
+  .modal-header { padding: 16px 16px 12px; }
+  .modal-footer { padding: 12px 16px; gap: 8px; }
+  .modal-footer .btn { flex: 1; }
+
+  /* Sidebar drawer profile area */
+  .sidebar-footer { padding: 16px 12px; }
+  .sidebar-user { padding: 12px; }
+  .sidebar-user-name { font-size: 14px; }
+  .sidebar-user-role { font-size: 12px; }
+  .sidebar-logout-btn { 
+    min-height: 44px; 
+    font-size: 14px; 
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    margin-top: 8px;
+  }
+
+  /* No horizontal overflow anywhere */
+  .app-shell, .page-content, .main-content {
+    overflow-x: hidden;
+  }
+
+  /* Tabs scroll horizontally */
+  .tabs { 
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex-shrink: 0; padding: 8px 14px; min-height: 40px; }
+
+  /* Chat on mobile */
+  .chat-layout { 
+    flex-direction: column; 
+    height: auto;
+  }
+  .chat-sidebar { 
+    width: 100%; 
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .chat-main { height: 450px; }
+
+  /* Kanban scroll */
+  .kanban-board {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  .kanban-column { width: 100%; }
+
+  /* Drawer items taller touch targets */
+  .sidebar-item {
+    padding: 11px 14px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+}
+
+/* 375px — small phones */
+@media (max-width: 375px) {
+  .page-content { padding: 10px; }
+  .stat-value { font-size: 20px; }
+  .stat-card { padding: 14px; }
+  .stat-icon { width: 42px; height: 42px; }
+  .quick-action-card { padding: 12px 8px; }
+  .quick-action-icon { width: 38px; height: 38px; }
+  .page-header h1 { font-size: 16px; }
+}

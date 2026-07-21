@@ -147,11 +147,19 @@ export default function Sidebar({ mobileOpen, onClose }) {
 
         {/* Footer — User Profile + Logout */}
         <div className="sidebar-footer">
-          {/* User Profile row (non-clickable) */}
-          <div className="sidebar-user" style={{ cursor: 'default' }}>
+          {/* Profile card */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            padding: '10px 12px',
+            background: 'var(--bg-hover)',
+            borderRadius: 'var(--radius)',
+            marginBottom: 8,
+          }}>
             <div style={{ position: 'relative', flexShrink: 0 }}>
               <div
-                className="avatar avatar-sm"
+                className="avatar avatar-md"
                 style={{ background: getAvatarColor(currentUser?.name) }}
               >
                 {getInitials(currentUser?.name)}
@@ -164,16 +172,18 @@ export default function Sidebar({ mobileOpen, onClose }) {
             </div>
           </div>
 
-          {/* Dedicated Logout Button */}
+          {/* Logout Button — full width, prominent */}
           <button
             className="sidebar-logout-btn"
             onClick={handleLogout}
             aria-label="Logout"
+            style={{ width: '100%', justifyContent: 'center' }}
           >
             <LogOut size={15} />
-            Logout
+            Sign Out
           </button>
         </div>
+
       </aside>
     </>
   );
